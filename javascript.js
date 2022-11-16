@@ -12,29 +12,26 @@ const computerinput = () =>{
 }
 
 
-
-const playround = (userchoice,computerchoice) => {
-    if (userchoice == computerchoice) {
+//FIX LOGIC
+const playround = (userin,computerchoice) => {
+    if (userin == computerchoice) {
         return `You both chose ${userchoice} It's a tie!`
     }
-    else if (userchoice == `rock` && computerchoice == `paper`){
-    return `You win! rock beats paper.`
+    else if (userin == `rock` && computerchoice == `scissors`){
+    return `You win! rock beats scissors.`
     }
-    else if (userchoice == `paper` && computerchoice == `rock`) {
+    else if (userin == `paper` && computerchoice == `rock`) {
         return `You win! paper beats rock.`
     }
-    else if(userchoice==`scissors` && computerchoice == `paper`) {
+    else if(userin==`scissors` && computerchoice == `paper`) {
         return `You win! scissors beats paper`
     }
     else {
-        return `You lose! ${computerchoice} beats ${userchoice}`
+        return `You lose! ${computerchoice} beats ${userin}`
     }       
 }
 
 const game = (i=1, userscore=0, computerscore=0) =>{
-    let userchoice = prompt("Enter rock, paper, or scissors.")
-    userchoice.toLowerCase
-    let computerchoice = computerinput()
     if (i>5) {
         if (userscore > computerscore) {
             return `You win! Final score is ${userscore} - ${computerscore}.`
@@ -47,6 +44,9 @@ const game = (i=1, userscore=0, computerscore=0) =>{
         }
     }
     else {
+        let userchoice = prompt("Enter rock, paper, or scissors.")
+        userchoice.toLowerCase
+        let computerchoice = computerinput()
         let round = playround(userchoice,computerchoice)
         console.log(round)
         if (round.includes(`You win!`)) {
