@@ -12,22 +12,23 @@ const computerinput = () =>{
 }
 
 
-//FIX LOGIC
 const playround = (userin,computerchoice) => {
+    capcomp = computerchoice.charAt(0).toUpperCase() + computerchoice.slice(1)
+    capuser = userin.charAt(0).toUpperCase() + userin.slice(1)
     if (userin == computerchoice) {
-        return `You both chose ${userchoice} It's a tie!`
+        return `You both chose ${capcomp} It's a tie!`
     }
     else if (userin == `rock` && computerchoice == `scissors`){
-    return `You win! rock beats scissors.`
+    return `You win! ${capuser} beats ${capcomp}.`
     }
     else if (userin == `paper` && computerchoice == `rock`) {
-        return `You win! paper beats rock.`
+        return `You win! ${capuser} beats ${capcomp}.`
     }
     else if(userin==`scissors` && computerchoice == `paper`) {
-        return `You win! scissors beats paper`
+        return `You win! ${capuser} beats ${capcomp}.`
     }
     else {
-        return `You lose! ${computerchoice} beats ${userin}`
+        return `You lose! ${capcomp} beats ${capuser}`
     }       
 }
 
@@ -45,7 +46,7 @@ const game = (i=1, userscore=0, computerscore=0) =>{
     }
     else {
         let userchoice = prompt("Enter rock, paper, or scissors.")
-        userchoice.toLowerCase
+        userchoice = userchoice.toLowerCase()
         let computerchoice = computerinput()
         let round = playround(userchoice,computerchoice)
         console.log(round)
